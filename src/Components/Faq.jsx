@@ -2,39 +2,40 @@ import React, { useState } from "react";
 // import "./FAQ.css"; // Import your CSS file for styling
 
 const FAQ = () => {
-  const AccordionData = [
-    {
-      id: "collapseOne",
-      title: "What is daycare management software?",
-      content:
-        "Daycare management software is a specialized tool designed to streamline and automate various administrative tasks within a daycare center. It assists in managing enrollments, schedules, staff, billing, parent communication, and more.",
-    },
-    {
-      id: "collapseTwo",
-      title: "What are the key features of daycare management software?",
-      content:
-        "Key features include attendance tracking, child profiles, staff management, billing and invoicing, scheduling, parent communication, immunization records, reporting, and often include additional features like meal planning, learning activities, and security features.",
-    },
-    {
-      id: "collapseThree",
-      title: "How does daycare management software benefit daycare centers?",
-      content:
-        "It helps improve operational efficiency by automating manual tasks, enhances communication between staff and parents, ensures accurate record-keeping, simplifies billing and payments, and provides insights for better decision-making.",
-    },
-    {
-      id: "collapseFour",
-      title:
-        "Is daycare management software secure for handling sensitive data?",
-      content:
-        "Reputable daycare management software providers prioritize data security. They often employ encryption methods, regular backups, secure logins, and adhere to compliance standards like HIPAA and GDPR to ensure data protection.",
-    },
-    {
-      id: "collapseFive",
-      title: "Can daycare management software assist with parent engagement?",
-      content:
-        "Yes, it facilitates transparent communication between daycare centers and parents. Features like real-time updates on children's activities, messaging, event calendars, and photo sharing help in fostering strong parent engagement.",
-    },
-  ];
+const AccordionData = [
+  {
+    id: "collapseOne",
+    title: "What is appointment scheduling software?",
+    content:
+      "Appointment scheduling software is a specialized tool designed to streamline and automate the process of booking and managing appointments for various services or events. It assists in managing schedules, appointments, staff availability, client communication, and more.",
+  },
+  {
+    id: "collapseTwo",
+    title: "What are the key features of appointment scheduling software?",
+    content:
+      "Key features include calendar management, online booking, appointment reminders, staff scheduling, client management, reporting and analytics, integration with other tools (e.g., payment processing, CRM), and often include additional features like waitlist management and automated notifications.",
+  },
+  {
+    id: "collapseThree",
+    title: "How does appointment scheduling software benefit businesses?",
+    content:
+      "It helps businesses improve efficiency by reducing manual appointment scheduling tasks, minimizes scheduling conflicts, enhances client experience with online booking and reminders, increases staff productivity, provides insights for better resource allocation, and supports growth through increased bookings and customer retention.",
+  },
+  {
+    id: "collapseFour",
+    title:
+      "Is appointment scheduling software secure for handling sensitive data?",
+    content:
+      "Reputable appointment scheduling software providers prioritize data security. They often implement security measures such as data encryption, access controls, regular backups, and compliance with industry standards like HIPAA and GDPR to ensure the protection of sensitive information.",
+  },
+  {
+    id: "collapseFive",
+    title: "Can appointment scheduling software integrate with other systems?",
+    content:
+      "Yes, it often integrates with other business tools such as CRM (Customer Relationship Management) systems, payment processors, email marketing platforms, and telecommunication systems. Integration enables seamless data flow and enhances overall business efficiency.",
+  },
+];
+
   const [openIndex, setOpenIndex] = useState(null);
 
   const handleAccordionClick = (index) => {
