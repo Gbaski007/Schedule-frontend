@@ -203,6 +203,10 @@ const PatientDashboard = () => {
   const userInfoString = localStorage.getItem("patientInfo"); // Retrieve string from local storage
   const userInfo = userInfoString ? JSON.parse(userInfoString) : null; // Parse string to object
   console.log("TOKENNN", userInfo?.token);
+
+  const api = axios.create({
+    baseURL: process.env.REACT_APP_API_URL, // Replace with your environment variable name
+  });
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
@@ -212,7 +216,7 @@ const PatientDashboard = () => {
             "Content-Type": "application/json", // Adjust content type if necessary
           },
         };
-        const response = await axios.get(
+        const response = await api.get(
           `/api/appointment/appointments/patient`,
           config
         );

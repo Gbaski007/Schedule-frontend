@@ -8,6 +8,7 @@ import { getPatient } from "../../Redux/Actions/PatientActions";
 import { Link } from "react-router-dom";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 const PatientFavorite = () => {
+  
   const dispatch = useDispatch();
   const patientProfile = useSelector((state) => state.patientProfile);
   const { patient, loading, error } = patientProfile;

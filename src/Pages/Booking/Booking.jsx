@@ -8,6 +8,9 @@ import "./Booking.css"; // Import CSS file for styling
 import Loading from "../../Components/Loading/Loading";
 
 const BookAppointment = () => {
+  const api = axios.create({
+    baseURL: process.env.REACT_APP_API_URL, // Replace with your environment variable name
+  });
   const dispatch = useDispatch();
   const id = window.location.pathname.split("/")[2];
   const singleDoctors = useSelector((state) => state.singleDoctors);
@@ -65,7 +68,7 @@ const BookAppointment = () => {
           "Content-Type": "application/json", // Adjust content type if necessary
         },
       };
-      const response = await axios.get(
+      const response = await api.get(
         `/api/appointment/booked-appointments/${doctorId}?date=${moment(
           date
         ).format("YYYY-MM-DD")}`,
@@ -118,7 +121,7 @@ const BookAppointment = () => {
           "Content-Type": "application/json", // Adjust content type if necessary
         },
       };
-      const response = await axios.post(
+      const response = await api.post(
         "/api/appointment/book-appointment",
         appointmentDetails,
         config

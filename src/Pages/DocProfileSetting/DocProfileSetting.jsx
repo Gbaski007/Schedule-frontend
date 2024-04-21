@@ -12,6 +12,9 @@ import SidebarDoctor from "../../Components/SidebarDoctor/SidebarDoctor";
 //
 
 const DocProfileSetting = () => {
+  const api = axios.create({
+    baseURL: process.env.REACT_APP_API_URL, // Replace with your environment variable name
+  });
   const [doctorData, setDoctorData] = useState({
     aboutMe: "",
     education: [{ degree: "", year: 0, college: "" }],
@@ -215,9 +218,7 @@ const DocProfileSetting = () => {
     setFile(null);
   };
 
-  const api = axios.create({
-    baseURL: process.env.REACT_APP_API_URL, // Replace with your environment variable name
-  });
+
 
   const submitHandler = async (e) => {
     e.preventDefault();

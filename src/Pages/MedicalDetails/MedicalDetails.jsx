@@ -38,7 +38,9 @@ const MedicalDetails = () => {
     },
     // Add more appointment data here if needed
   ];
-
+const api = axios.create({
+  baseURL: process.env.REACT_APP_API_URL, // Replace with your environment variable name
+});
   const dispatch = useDispatch();
   const patientProfile = useSelector((state) => state.patientProfile);
   const { patient, loading, error } = patientProfile;
@@ -73,7 +75,7 @@ const MedicalDetails = () => {
           "Content-Type": "application/json", // Adjust content type if necessary
         },
       };
-      const response = await axios.post(
+      const response = await api.post(
         "/api/patient/add-health-data",
         {
           newData: newDetails,

@@ -28,7 +28,9 @@ const ProfileSetting = () => {
     profileImage: "",
     password: "",
   });
-
+const api = axios.create({
+  baseURL: process.env.REACT_APP_API_URL, // Replace with your environment variable name
+});
   const patientProfile = useSelector((state) => state.patientProfile);
   const { patient } = patientProfile;
 
@@ -100,7 +102,7 @@ const [errorr, setErrorr] = useState(null);
          "Content-Type": "application/json", // Adjust content type if necessary
        },
      };
-     const response = await axios.put("/api/patient/update", newPost, config);
+     const response = await api.put("/api/patient/update", newPost, config);
      console.log("Profile updated:", response.data);
      
      // Handle success, redirect or show a success message

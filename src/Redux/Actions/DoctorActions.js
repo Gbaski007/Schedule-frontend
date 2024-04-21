@@ -31,7 +31,7 @@ export const loginn = (email, password) => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-    const { data } = await axios.post(
+    const { data } = await api.post(
       "/api/doctor/login",
       { email, password },
       config
@@ -115,7 +115,16 @@ export const getDoctor = (id) => async (dispatch, getState) => {
 };
 
 export const listDoctors =
-  ({ gender, sort, maxPrice, minPrice, keyword, specializations, page, field }) =>
+  ({
+    gender,
+    sort,
+    maxPrice,
+    minPrice,
+    keyword,
+    specializations,
+    page,
+    field,
+  }) =>
   async (dispatch) => {
     let url = `/api/doctor`;
 
@@ -149,13 +158,13 @@ export const listDoctors =
           : "?"
       }page=${page}`;
     }
-     if (field) {
-       url += `${
-         gender || sort || keyword || specializations || (minPrice && maxPrice)
-           ? "&"
-           : "?"
-       }field=${field}`;
-     }
+    if (field) {
+      url += `${
+        gender || sort || keyword || specializations || (minPrice && maxPrice)
+          ? "&"
+          : "?"
+      }field=${field}`;
+    }
     // if (page) {
     //   url += `${
     //     category || isBest || sort || (minPrice && maxPrice) ? "&" : "?"
@@ -211,11 +220,10 @@ export const getDoctorDetails = () => async (dispatch, getState) => {
           : error.message,
     });
   }
-}; 
-
+};
 
 export const logoutt = () => (dispatch) => {
   localStorage.removeItem("doctorInfo");
-  dispatch({ type: DOCTOR_USER_LOGOUT});
+  dispatch({ type: DOCTOR_USER_LOGOUT });
   document.location.href = "/";
 };
