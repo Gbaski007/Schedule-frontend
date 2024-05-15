@@ -123,10 +123,12 @@ const Appointment = () => {
               </span>
               <div className="appt-main row px-4">
                 {appointments.length === 0 ? (
-                  <div className="no-appointments mb-2 mt-2">No appointments</div>
+                  <div className="no-appointments mb-2 mt-2">
+                    No appointments
+                  </div>
                 ) : (
                   appointments.map((appointment) => (
-                    <div 
+                    <div
                       className="d-flex col-12 align-items-center justify-content-between appt-cont px-4 py-4"
                       key={appointment._id}
                     >
@@ -134,7 +136,10 @@ const Appointment = () => {
                         <div className="p-img">
                           <img
                             className="img-fluid"
-                            src={appointment.patient.profileImage}
+                            src={
+                              appointment.patient.profileImage? appointment
+                                .patient.profileImage:"/images/pp.png"
+                            }
                             alt="Profile"
                           />
                         </div>
@@ -153,9 +158,7 @@ const Appointment = () => {
                             <span className="material-icons span1">
                               location_on
                             </span>
-                            <p className="mb-0">
-                              Edo, Benin City
-                            </p>
+                            <p className="mb-0">Edo, Benin City</p>
                           </div>
                           <div className="d-flex gap-2 align-items-center">
                             <span className="material-icons span1">email</span>

@@ -43,18 +43,21 @@ const PatientSidebar = ({ item }) => {
       <div className="sidebar d-md-block d-none">
         <div className="d-flex align-items-center flex-column justify-content-center p-top">
           <div className="p-profile-img">
-            <img className="img-fluid" src={patient?.profileImage} />
+            <img
+              className="img-fluid"
+              src={patient?.profileImage?patient?.profileImage:"/images/pp.png"}
+            />
           </div>
           <h3>
             {patient?.firstName} {patient?.lastName}
           </h3>
-          <div className="d-flex align-items-center ic">
+          {/* <div className="d-flex align-items-center ic">
             <span class="material-symbols-outlined">cake</span>
 
             <p className="mb-0">
               {formattedDate}, {age}
             </p>
-          </div>
+          </div> */}
           <div className="d-flex align-items-center ic">
             <span class="material-symbols-outlined">location_on</span>
             <p className="mb-0">Newyork, USA</p>

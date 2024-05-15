@@ -31,7 +31,8 @@ const BookAppointment = () => {
   const [selectedTime, setSelectedTime] = useState("");
   const [bookingStatus, setBookingStatus] = useState("");
   const [doctorId, setDoctorId] = useState(id);
- const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+   const [error, setError] = useState("");
   const [appointmentDetails, setAppointmentDetails] = useState({
     doctorId: "",
     date: "",
@@ -131,6 +132,7 @@ const BookAppointment = () => {
       fetchBookedAppointments();
     } catch (error) {
       console.error("Error booking appointment:", error);
+      setError(error)
       setBookingStatus("error");
     } finally {
       setIsLoading(false); // Set loading to false when booking request completes
@@ -212,6 +214,11 @@ const BookAppointment = () => {
         {bookingStatus === "error" && (
           <p className="status-message">
             Error booking appointment. Please try again later.
+          </p>
+        )}
+        {bookingStatus === "error" && (
+          <p className="error">
+            {error.response.data.message}
           </p>
         )}
       </div>

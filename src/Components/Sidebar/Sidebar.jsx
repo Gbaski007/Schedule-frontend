@@ -59,7 +59,14 @@ const Sidebar = ({ item, sidebarVisible, setSidebarVisible }) => {
           <div className="sidebar">
             <div className="d-flex align-items-center flex-column justify-content-center p-top">
               <div className="p-profile-img">
-                <img className="img-fluid" src={patient?.profileImage} />
+                <img
+                  className="img-fluid"
+                  src={
+                    patient?.profileImage
+                      ? patient?.profileImage
+                      : "/images/pp.png"
+                  }
+                />
               </div>
               <h3>
                 {patient?.firstName} {patient?.lastName}

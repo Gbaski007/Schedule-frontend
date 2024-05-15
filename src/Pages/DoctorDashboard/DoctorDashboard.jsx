@@ -369,10 +369,15 @@ const DoctorDashboard = () => {
                                   <td>
                                     <div className="d-flex">
                                       <img
-                                        src={appointment.patient.profileImage}
+                                        src={
+                                          appointment.patient
+                                            .profileImage?appointment.patient
+                                            .profileImage:"/images/pp.png"
+                                        }
                                         alt="Doctor"
                                         className="doctor-image"
                                       />
+
                                       <div>
                                         <h4>
                                           {appointment.patient.firstName}
